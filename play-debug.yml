@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install APM Package
+      apm-package: name="{{ item }}" upgrade="true"
+      register: result
+      with_items:
+        - file-icons
+        - asciidoc-preview
+
+    - debug: var=result
